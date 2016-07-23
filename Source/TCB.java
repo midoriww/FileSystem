@@ -56,4 +56,24 @@ public class TCB
         return pid;
     }
 
+
+    public FileTableEntry getFtEnt(int param)
+    {
+        return null;
+    }
+
+    public FileTableEntry getFtEnt(FileTableEntry param)
+    {
+        return null;
+    }
+
+    public int getFd(int param)
+    {
+        return 0;
+    }
+
+    public FileTableEntry returnFd(int param)
+    {
+        return null;
+    }
 }
