@@ -33,12 +33,20 @@ public class Directory
      *
      * @param data the data[] received directory information from disk
      * @return                                                  // It needs to be added later
+     * edited by Midori on 7/23/16
+     * code added from slides
      */
     public int bytes2directory(byte data[])
     {
+        Int offset = 0; //needed for SysLib call
         
-        return 0; // It needs to be modified later
-    }
+        For ( int i = 0; i < fsize.length; i++, offset += 4 )
+	        Fsizes[ i ] = SysLib.bytes2int( data, offset );
+        
+        For ( int i = 0; i < fnames.length; i++, offset += maxChars * 2 ) {
+	        String fname = new String( data, offset, maxChars *2 );
+	        fname.getChars( 0, fsizes[ i ], fnames[ i ], 0 );
+        }
 
     /**
      * This method converts and return Directory information into a plain
